@@ -1,0 +1,14 @@
+<div class="mb-3">
+       <input type="text"  [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aramak istediğiniz marka..">
+     </div>
+<ul class="list-group">
+    <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
+    
+    <li  (click)="setCurrentBrand(brand)"
+      routerLink="cars/brand/{{brand.brandId}}"  
+      [class]="getCurrentBrandClass(brand)"
+    *ngFor="let brand of brands | filterBrandPipe:filterText"
+     >
+      {{brand.brandName}}</li>
+</ul>
+

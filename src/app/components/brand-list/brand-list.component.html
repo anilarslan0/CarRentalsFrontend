@@ -1,0 +1,33 @@
+<br>
+<div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="brandFilter"
+      placeholder="Arama ifadesi giriniz"
+    
+    />
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Marka Adı</th>
+        <th>Aksiyonlar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of brands ">
+        <td>{{ brand.brandId }}</td>
+        <td>{{ brand.brandName }}</td>
+        <td>
+          <a
+            type="button"
+            class="btn btn-dark btn-sm"
+            routerLink="/brands/{{brand.brandId}}"
+            ><i class="bi bi-pencil-square"></i> Güncelle</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>

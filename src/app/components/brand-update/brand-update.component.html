@@ -1,0 +1,13 @@
+<br>
+<form [formGroup]="brandUpdateForm">
+  <div class="mb-3 row">
+    <label for="brandName" class="col-sm-2 col-form-label">Marka Adı</label>  
+    <div class="col-sm-6">
+      <input type="text" id="brandName" formControlName="brandName" class="form-control"
+             placeholder="Marka Adı Giriniz"/>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="updateBrand()">Marka Güncelle</button>
+  </div>
+</form>

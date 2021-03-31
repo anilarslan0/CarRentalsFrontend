@@ -1,0 +1,34 @@
+<br>
+<div class="mb-3">
+   
+    <input
+      type="text"
+      class="form-control"
+      id="colorFilter"
+      placeholder="Arama ifadesi giriniz"
+      [(ngModel)]="filterText"
+    />
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Renk Adı</th>
+        <th>Aksiyonlar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let color of colors | filterColor:filterText">
+        <td>{{ color.colorId }}</td>
+        <td>{{ color.colorName }}</td>
+        <td>
+          <a
+            type="button"
+            class="btn btn-dark btn-sm"
+            routerLink=""
+            ><i class="bi bi-pencil-square"></i> Güncelle</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>

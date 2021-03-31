@@ -1,0 +1,58 @@
+<!--<table class="table">
+    <thead>
+        <tr>         
+            <th>carId</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Fiyat</th>
+            <th>Açıklama</th>
+        </tr>
+    </thead>
+        <tr *ngFor="let carDetail of carDetails">          
+            <td>{{carDetail.carId}}</td>
+            <td>{{carDetail.brandName}}</td>
+            <td>{{carDetail.colorName}}</td>
+            <td>{{carDetail.dailyPrice}}</td>
+            <td>{{carDetail.carName}}</td>
+        </tr>
+</table>-->
+<br>
+<app-car-filter></app-car-filter>
+<div class="mb-3">
+ <br>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Aramak istediğiniz aracı giriniz..">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız.
+</div>
+
+<div
+    class="d-flex flex-wrap justify-content-center justify-content-xl-start"
+    style="gap: 12px; padding: 0;margin-top: 20px;">
+    <div *ngFor="let car of carDetails | filterPipe:filterText" class="card" style="width: 280px;">
+      <div class="d-flex" style="height: 45%">
+        
+      </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{car.brandName |uppercase}}</h5>
+        
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-center">{{car.carName}}</li>
+          <li class="list-group-item text-center">{{car.colorName}}</li>
+          <li class="list-group-item text-center">{{car.dailyPrice}} TL</li>
+        </ul>
+        <div class="card-body d-grid gap-2 col-6 mx-auto">
+          <button type="button" (click)="setCurrentCar(car)" routerLink = "/cardetails/{{car.carId}}" class="btn btn-success text-center">Detaylar</button>
+        </div>
+      </div>
+
+
+      <ul>
+        <li *ngFor="let item of carImages"><img src="{{item.imagePath}}"> </li>
+      </ul>
+
+      
+</div>
+
+
