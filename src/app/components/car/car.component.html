@@ -33,6 +33,9 @@
       <div class="d-flex" style="height: 45%">
         
       </div>
+      <div class="card-header" style="text-align: center;">
+          <img src="https://localhost:44323/{{car.carImage}}" style="width: 200px;height: 200px;">
+       </div>
         <div class="card-body">
           <h5 class="card-title text-center">{{car.brandName |uppercase}}</h5>
         
@@ -46,13 +49,6 @@
           <button type="button" (click)="setCurrentCar(car)" routerLink = "/cardetails/{{car.carId}}" class="btn btn-success text-center">Detaylar</button>
         </div>
       </div>
-
-
-      <ul>
-        <li *ngFor="let item of carImages"><img src="{{item.imagePath}}"> </li>
-      </ul>
-
-      
 </div>
 
 

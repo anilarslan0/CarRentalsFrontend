@@ -13,7 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class CarDetailComponent implements OnInit {
   carDetails:CarDetail[];
   carDetail:CarDetail;
-  constructor(private carDetailService:CarDetailService,private activatedRoute:ActivatedRoute,private toastrService:ToastrService) { }
+  constructor(private carDetailService:CarDetailService,private activatedRoute:ActivatedRoute,
+    private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

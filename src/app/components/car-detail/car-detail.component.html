@@ -1,5 +1,6 @@
+
 <div class="col-lg-7 mx-auto">
-        <div id="carImageSlide" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <!--     <div id="carImageSlide" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div
             class="carousel-inner d-flex"
             style="height: 50vh; min-height: 20rem; max-height: 30rem"
@@ -10,12 +11,11 @@
            
               style="height: 100%; width: 100%"
             >
-              <img
+           
   
-                class=""
-                style="height: 100%; width: 100%;"
              
-              />
+             
+          
             </div>
       
             <button
@@ -38,11 +38,19 @@
             </button>
           </div>
 
-
+--> 
 
 
 <table *ngIf="carDetail" class="table table-striped mt-2">
         <tbody>
+            <div class="card-header" style="margin-left: 130px">
+                
+                    <img src="https://localhost:44323/{{carDetail.carImage}}" style="width: 100%;height: 500px;  ">
+          
+            </div>
+
+        
+          
           <tr>
             <th scope="row">Marka</th>
             <td>{{ carDetail.brandName |uppercase}}</td>
@@ -76,7 +84,7 @@
         <div class="btn-group me-2"><button type="button" routerLink = "" data-bs-toggle="modal" class="btn btn-dark text-center">Kirala</button></div>
      </div>
     </div>
-  </div>
+  
 
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
