@@ -23,9 +23,11 @@ export class BrandUpdateComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
         this.brandId = parseInt(params['id']);
+        console.log(this.brandId)
         this.getBrandById(params['id']);
       }
     });
@@ -48,6 +50,7 @@ export class BrandUpdateComponent implements OnInit {
 
  
   updateBrand() {
+    console.log(this.brandUpdateForm.value)
     if (this.brandUpdateForm.valid)
    {
       let brandModel = Object.assign({}, this.brandUpdateForm.value);
@@ -55,11 +58,12 @@ export class BrandUpdateComponent implements OnInit {
         this.toastrService.success(response.message, 'Güncelleme Başarılı');
        
       }, responseError => {
-        if (responseError.error.Errors.length > 0) {
-          for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, 'Doğrulama hatası');
-          }
-        }
+        // if (responseError.error.Errors.length > 0) {
+        //   for (let i = 0; i < responseError.error.Errors.length; i++) {
+        //     this.toastrService.error(responseError.error.Errors[i].ErrorMessage, 'Doğrulama hatası');
+        //   }
+        // }
+        console.log(responseError);
       });
     } else {
       this.toastrService.error('Form Bilgilerini Gözden Geçiriniz', 'Hata');

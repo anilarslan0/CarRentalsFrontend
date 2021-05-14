@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navi',
@@ -12,38 +13,25 @@ import { User } from 'src/app/models/user';
 })
 export class NaviComponent implements OnInit {
 
-  email = this.localStorageService.get('email');
-  user:User=new User();
-
-   constructor(private authService:AuthService,private localStorageService:LocalStorageService,
+  userInfo:User; 
+  user:any=localStorage.getItem("userId")
+   constructor(private userService:UserService,private localStorageService:LocalStorageService,
     private  toastrService:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
-  }
+    if(!this.user){
 
-  checkToLogin(){
-    if(this.authService.isAuthenticated()){
-      return true;
     }else{
-      return false;
+      this.getUserInfo()
     }
   }
 
-  checkToEmail(){
-    if(this.localStorageService.get('email')){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  logOut(){
-   this.localStorageService.clean()
-    this.toastrService.success("Başarıyla Çıkış Yapıldı");
-    this.router.navigate(["/"])
-  }
+ getUserInfo(){
+    this.userService.getUserInfo(parseInt(this.user)).subscribe(response=>{
+      this.userInfo=response.data
+    })
 
   
-
+  }
 
 }

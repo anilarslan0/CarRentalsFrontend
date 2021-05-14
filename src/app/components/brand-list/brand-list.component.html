@@ -8,16 +8,17 @@
     
     />
   </div>
-  <table class="table table-hover">
+  <table class="table table-dark table-hover  ">
     <thead>
       <tr>
         <th>Id</th>
         <th>Marka Adı</th>
-        <th>Aksiyonlar</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let brand of brands ">
+      <tr *ngFor="let brand of brands">
         <td>{{ brand.brandId }}</td>
         <td>{{ brand.brandName }}</td>
         <td>
@@ -26,6 +27,14 @@
             class="btn btn-dark btn-sm"
             routerLink="/brands/{{brand.brandId}}"
             ><i class="bi bi-pencil-square"></i> Güncelle</a
+          >
+        </td>
+        <td>
+          <a
+            type="button"
+            class="btn btn-dark btn-sm"
+            (click)="brandDelete(brand)"
+            ><i class="bi bi-pencil-square"></i> Sil</a
           >
         </td>
       </tr>

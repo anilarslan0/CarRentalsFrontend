@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from 'src/app/services/brand.service';
 import { Brand } from 'src/app/models/brand';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-brand-list',
@@ -9,7 +10,8 @@ import { Brand } from 'src/app/models/brand';
 })
 export class BrandListComponent implements OnInit {
   brands: Brand[] = [];
-  constructor(private brandService: BrandService) { }
+  
+  constructor(private brandService: BrandService,private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     this.getBrands();
@@ -20,6 +22,16 @@ export class BrandListComponent implements OnInit {
       this.brands = response.data;
     });
   }
+
+  brandDelete(brand:Brand){
+    this.brandService.brandDelete(brand).subscribe(response=>{
+      this.toastrService.info(response.message)
+      window.location.reload();
+    },responseError=>{
+      this.toastrService.info(responseError.message)
+    })
+  }
+  
 }
 
 

@@ -32,6 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { ContentComponent } from './components/content/content.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 
@@ -60,7 +62,9 @@ import { RegisterComponent } from './components/register/register.component';
     CarUpdateComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContentComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded-top border-bottom-0 border border-light ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Rental</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,21 +26,12 @@
               <li><a class="dropdown-item" href="colors/list">Renk Listeleme <strong>|</strong> Güncelleme</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
+       
         </ul>
         <div >
-            <ul class="nav navbar-nav ml-auto" *ngIf="checkToEmail()==true">
-                <li class="nav-item dropdown">
-                  <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">{{this.user.firstName}} {{this.user.lastName}}</a>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a routerLink="/profile" class="dropdown-item">Ayarlar</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="" class="dropdown-item" (click)="logOut()" >Çıkış Yap</a>
-                  </div>
-                </li>
-              </ul>
+          <form *ngIf="userInfo" class="d-flex">
+            <a  class="navbar-brand" routerLink="" >Hoşgeldiniz {{userInfo.firstName+" "+userInfo.lastName}} </a>
+           </form>
         </div>
       </div>
     </div>

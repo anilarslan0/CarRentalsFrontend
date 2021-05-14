@@ -1,1 +1,13 @@
-<p>color-update works!</p>
+<br>
+<form [formGroup]="colorUpdateForm">
+  <div class="mb-3 row">
+    <label for="colorName" class="col-sm-2 col-form-label" style="color: white">Renk Adı</label>  
+    <div class="col-sm-6">
+      <input type="text" id="colorName" formControlName="colorName" class="form-control"
+             placeholder="Renk Adı Giriniz"/>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="updateColor()">Renk Güncelle</button>
+  </div>
+</form>

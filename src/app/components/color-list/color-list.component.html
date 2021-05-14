@@ -9,12 +9,13 @@
       [(ngModel)]="filterText"
     />
   </div>
-  <table class="table table-hover">
+  <table class="table table-dark table-hover  ">
     <thead>
       <tr>
         <th>Id</th>
         <th>Renk Adı</th>
-        <th>Aksiyonlar</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
       </tr>
     </thead>
     <tbody>
@@ -25,8 +26,16 @@
           <a
             type="button"
             class="btn btn-dark btn-sm"
-            routerLink=""
+            routerLink="/colors/{{color.colorId}}"
             ><i class="bi bi-pencil-square"></i> Güncelle</a
+          >
+        </td>
+        <td>
+          <a
+            type="button"
+            class="btn btn-dark btn-sm"
+            (click)="colorDelete(color)"
+            ><i class="bi bi-pencil-square"></i> Sil</a
           >
         </td>
       </tr>

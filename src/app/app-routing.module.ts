@@ -13,6 +13,9 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { ContentComponent } from './components/content/content.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 
 
 const routes: Routes = [
@@ -27,12 +30,15 @@ const routes: Routes = [
   {path:"colors/add",component:ColorAddComponent},
   {path:"brands/list",component:BrandListComponent},
   {path:"brands/update",component:BrandUpdateComponent},
+  {path:"colors/update",component:ColorUpdateComponent},
   {path:"colors/list",component:ColorListComponent},
   {path:"cars/list",component:CarListComponent},
-  {path:"brands/:brandId",component:BrandUpdateComponent},
+  {path:"brands/:id",component:BrandUpdateComponent},
+  {path:"colors/:id",component:ColorUpdateComponent},
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent}
-
+  {path:"register",component:RegisterComponent},
+  {path:"content",component:ContentComponent},
+  {path:"comment",component:CommentComponent}
 ];
 
 @NgModule({

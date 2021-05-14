@@ -8,7 +8,7 @@
       [(ngModel)]="filterText"
     />
   </div>
-  <table class="table table-hover">
+  <table class="table table-dark table-hover  ">
     <thead>
       <tr>
         <th>Id</th>
@@ -16,12 +16,12 @@
         <th>Renk Adı</th>
         <th>Model Yılı</th>
         <th>Günlük Fiyat</th>
-        <th>Açıklama</th>
-        <th>Aksiyonlar</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let carDetail of carDetails | filterPipe:filterText">
+      <tr *ngFor="let carDetail of carDetails ">
         <td>{{ carDetail.carId }}</td>
         <td>{{ carDetail.brandName }}</td>
         <td>{{ carDetail.colorName}}</td>
@@ -33,7 +33,15 @@
             type="button"
             class="btn btn-dark btn-sm"
             routerLink=""
-            ><i class="bi bi-pencil-square"></i> Güncelle</a
+            ><i class="bi bi-pencil-square" ></i> Güncelle</a
+          >
+        </td>
+        <td >
+          <a
+            type="button"
+            class="btn btn-dark btn-sm"
+          
+            ><i class="bi bi-pencil-square"></i> Sil</a
           >
         </td>
       </tr>
